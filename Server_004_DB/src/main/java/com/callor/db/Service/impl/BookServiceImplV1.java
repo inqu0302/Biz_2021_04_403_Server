@@ -36,8 +36,8 @@ public class BookServiceImplV1 implements BookService{
 		// 프로젝트에서 SQL을 실행하면 url로 설정된 통로를 통해서
 		// 명령을 전달하고 결과를 받는다
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "rentbook";
-		String password = "rentbook";
+		String user = "userbook";
+		String password = "userbook";
 		
 		try {
 			// orcale에 접속할 미들웨어를 실행
