@@ -25,6 +25,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class MyFoodCDTO {
 
+	private Long mf_seq;		// = "일련번호";
 	private String mf_date;		// = "섭취일자";
 	private String mf_fcode;	// = "식품코드";
 	private String mf_fname;	// = "식품명";
@@ -34,7 +35,7 @@ public class MyFoodCDTO {
 	private Float mf_cal;		// = "에너지";
 	private Float mf_protein;	// = "단백질";
 	private Float mf_fat;		// = "지방";
-	private Float mf_carbo;	// = "탄수화물";
-	private Float mf_sugar;	//= "총당류";
+	private Float mf_carbo;		// = "탄수화물";
+	private Float mf_sugar;		//= "총당류";
 	
 }
