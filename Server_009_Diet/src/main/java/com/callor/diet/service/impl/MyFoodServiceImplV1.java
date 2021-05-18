@@ -52,7 +52,7 @@ public class MyFoodServiceImplV1 implements MyFoodService{
 	}
 	
 	@Override
-	public List<MyFoodCDTO> slectAll() {
+	public List<MyFoodCDTO> selectAll() {
 		// TODO 전체 식품섭취 리스트
 		String sql = " SELECT * FROM view_섭취량계산 ";
 		

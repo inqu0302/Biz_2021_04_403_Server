@@ -21,6 +21,7 @@ public class HomeController extends HttpServlet{
 	protected MyFoodService mfService;
 	
 	public HomeController() {
+		
 		mfService = new MyFoodServiceImplV1();
 	}
 	
@@ -33,13 +34,15 @@ public class HomeController extends HttpServlet{
 //		ReqController.forward(req, resp, "home");
 		
 		String mf_date = req.getParameter("mf_date");
-
+		
 		List<MyFoodCDTO> mfList = null;
+		
 		if(mf_date == null || mf_date.equals("")) {
 			
-			mfList = mfService.slectAll();
-			
+			 mfList = mfService.selectAll();
+			 
 		} else {
+			
 			mfList = mfService.findByDate(mf_date);
 		}
 		
