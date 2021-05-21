@@ -1,6 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style>
+
+/*
+CSS를 사용하여 화면을 디자인할때 
+항상 제일먼저 있어야 할 설정
+기본 HTML의 margin, padding 을 clear(reSet)하여 
+이후에 작성된 CSS의 margin, padding을 원할하게 적용시키기 위함이다
+
+box-sizing : border-box;
+Block type tag를 사용하여 화면을 그릴때 
+padding, margin, border 값을 지정할대 좌 우로 벗어나서 그려지는 현상을
+없애기 위한 설정
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	
+	box-sizing : border-box;
+}
+h1#main {
+
+	color:white;
+	text-align:center;
+	background-color: violet;
+	padding: 30px;
+	margin:0px;
+	/*
+	HTML, CSS에서의 단위구조
+	dp, sp, pt : 절대값으로 단위 지정하기
+	
+	rem(em) : 상대값으로 단위 지정하기
+	내부에 Text 포함된 tag의 경우
+	text 높이를 1rem(em)으로 설정하고,
+	비율에 맞추어서 상대적으로 크기를 지정하기
+	*/
+}
+
+
 nav#main{
 	background-color: blue;
 	padding :15px;
@@ -51,7 +89,7 @@ nav#main a{
 	
 	HTML문서의 모든 객체의 시작점 객체는 dobumment
 	*/
-	document.addEventListener("DOMContentLoaded",fucthion(){
+	document.addEventListener("DOMContentLoaded",function(){
 		
 		/*
 		상단 메뉴의 항목을 클릭했을때 url을 전환하여
@@ -73,17 +111,17 @@ nav#main a{
 			alert(text + "가 클릭됨");
 			
 			let url = "${rootPath}"
-			if(text == "HOME"){
-				url += "/"'
-			}else if (text == "공지사항"){
-				url += "/notice"
-			}else if (text == "회사소개"){
-				url += "/profile"
-			}else if (text == "회원가입"){
-				url += "/join"
-			}else if (text == "로그인"){
-				url += "/login"
-			}
+				if(text == "HOME") {
+					url += "/" 
+				} else if(text == "공지사항") {
+					url += "/notice"
+				} else if(text == "회사소개") {
+					url += "/profile"
+				} else if(text == "회원가입") {
+					url += "/join"
+				} else if(text == "로그인") {
+					url += "/login"
+				}
 			
 			document.location.href = url;
 		});
@@ -91,7 +129,7 @@ nav#main a{
 	})
 
  	</script>
-<h1>방명록 2021</h1>
+<h1 id="main">방명록 2021</h1>
 	<%-- 메뉴를 설정할때 사용하는 tag --%>
 	<%-- div라는 tag 를 사용하여 layout을 설정했는데 HTML 5 에서는 
 	Symatec(의미있는 이름으로) tag를 사용하는 것을 권장한다 --%>
@@ -117,7 +155,7 @@ nav#main a{
 			사용할 수 있고, 상대적으로 html 코드에 직접 anchor를 설정하는 것 보다 본문코드가 
 			간편해 지기도 한다.
 		 --%>
-		 	<li><a href="${rootPath}"/>Home</li>
+		 	<li><a href="${rootPath}"/>Home</a></li>
 			<li><a href="${rootPath}/notice">공지사항</a></li>
 			<li>회사소개</li>
 			<li>로그인</li>
