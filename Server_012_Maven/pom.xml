@@ -2,15 +2,28 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- 상속을 위해 중요한부분 -->
 	<groupId>com.callor</groupId>
-	<artifactId>maven</artifactId>
+	<artifactId>maven</artifactId><!-- 이름이 겹치면안됨!! -->
 	<version>0.1</version>
 	<packaging>pom</packaging>
+
 	<name>0.0.1</name>
 
+	<!-- pom.xml에서 공통으로 사용할 변수 -->
 	<properties>
 		<java-version>15</java-version>
 	</properties>
+	<!-- 
+	Java(1.1)
+	Java2(1.2 ~ 1.4)
+	Java5(1.5)
+	Java7(1.7 ~ 1.8)
+	Java8(9, 10, 11, 15, 16)
+	1.8 stream 추가
+	10 새로운 변수 선언 키워드(var)
+	 -->
 
 	<dependencies>
 
