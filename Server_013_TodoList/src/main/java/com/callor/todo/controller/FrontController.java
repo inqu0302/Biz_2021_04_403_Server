@@ -15,12 +15,29 @@ import com.callor.todo.command.HomeCommandImplV1;
 import com.callor.todo.command.TodoCommand;
 import com.callor.todo.command.TodoCommandImplV1;
 
+/*
+ * Servelt App 에서는 Servlet(Controller) 클래스를 다수 선언하고,
+ * 필요할때 마다 URI(URL)을 mapping 하여 기능을 수행할 수 있도록 한다.
+ * 
+ * 하지만 프로젝트가 커지면 다수의 Controller가 생성되고 그때마다 
+ * URI mapping을 하는데 많은 어려움을 겪을 수 있다. 똑같은 객체를 상송받고,
+ * 같은 method(doGet, doPost)를 사용하여 코드를 작성하는데 관리가 어려워 진다.
+ * 
+ * URI mapping을 한곳으로 집중하고 POJO를 이용해 프로젝트를 진행하도록 한다
+ * (Plan Old Java Object : 어떤 클래스를 상속받지않은 일반적인 자바 클래스 형식의 코드)
+ * 
+ * Dispatcher Servlet Controller라고도 한다
+ */
 @WebServlet("/")
 public class FrontController extends HttpServlet{
 
-	
+	// URI mapping을 선언하여 URI에 대한 객체를 준비하여 보관할 장소
+	// TodoCommand 인터페이스는 command 객체들의 prototype으로 선언되어 있고
+	// 여기에 command객체들을 저장해 둘수 있다.
+	// 인터페이스를 사용하지 않고 Object를 사용할 수 있지만 Object클래스는
+	// 상대적으로 연산비용이 많이 소요되는 클래스 객체이다.
+	// 효율적인 사용을 위해 인터페이스를 사용했다.
 	protected Map<String, TodoCommand> commands;
-	
 	
 	// FrontController 가 최초 호출될 때 한번 실행
 	// 여러가지 변수등을 초기화 하는 코드
@@ -36,7 +53,7 @@ public class FrontController extends HttpServlet{
 		// 만약 http://localhost:8080/todo/insert 로 요청이오면 TodoCommandImplV1 객체를 사용하여
 		// 요청을 처리하기 위한 준비
 		commands.put("/insert", new TodoCommandImplV1());
-		
+		commands.put("/expire", new TodoCommandImplV1());
 	}
 	
 	// doHet(), doPost() 로 분리하여 처리하던 방식을 한개의 method에서 동시에 처리
